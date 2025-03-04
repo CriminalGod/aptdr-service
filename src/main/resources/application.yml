@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: aptdr-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_security_handler?serverTimezone=UTC&ApplicationName=cg-Local
+    username: postgres
+    password: postgres
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+cors:
+  allowedOrigins:
+    - 'http://localhost:5173'
+  allowedMethods:
+    - GET
+    - PUT
+    - POST
+    - DELETE
+  allowedHeaders:
+    - '*'
+  allowCredentials: true
+  maxAge: 3600
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
