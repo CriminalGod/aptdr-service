@@ -1,6 +1,6 @@
 package in_.apcfss.filter;
 
-import in_.apcfss.util.SecurityConstant;
+import in_.apcfss.constants.SecurityConstant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;

@@ -3,7 +3,7 @@ package in_.apcfss.config;
 
 import in_.apcfss.domain.Customer;
 import in_.apcfss.repo.CustomerRepo;
-import in_.apcfss.util.RSAEncryptionService;
+import in_.apcfss.util.RSAEncryptionUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -24,7 +24,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     private final CustomerRepo customerRepo;
     private final PasswordEncoder passwordEncoder;
-    private final RSAEncryptionService encryptionService;
+    private final RSAEncryptionUtil encryptionService;
 
 
     @Override

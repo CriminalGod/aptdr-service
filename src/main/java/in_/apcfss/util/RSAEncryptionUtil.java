@@ -10,7 +10,7 @@ import java.security.spec.MGF1ParameterSpec;
 import java.util.Base64;
 
 @Component
-public class RSAEncryptionService {
+public class RSAEncryptionUtil {
     private final PublicKey publicKey;
     private final PrivateKey privateKey;
 
@@ -20,7 +20,7 @@ public class RSAEncryptionService {
     private static final String MASK_GENERATION_FUNCTION = "MGF1";
 
 
-    public RSAEncryptionService() throws Exception {
+    public RSAEncryptionUtil() throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM);
         keyPairGenerator.initialize(2048);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
