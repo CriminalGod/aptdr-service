@@ -33,14 +33,10 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String userName = authentication.getName();
         String pwd = authentication.getCredentials().toString();
         try {
-            System.out.println(pwd);
             pwd = encryptionService.decryptPassword(pwd);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        System.out.println(userName);
-        System.out.println(pwd);
-        System.out.println();
 //      1. Fetching user details
         List<Customer> customers = customerRepo.findByEmail(userName);
         if(!customers.isEmpty()) {

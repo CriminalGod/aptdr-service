@@ -17,4 +17,5 @@ public class ApiResponse<T> {
     private List<String> errors;
     private int errorCode;
     private T data;
+    private Object metadata;
 }

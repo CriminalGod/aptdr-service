@@ -43,4 +43,5 @@ public class ApiResponseUtil {
     public static <T> ApiResponse<T> error(String error, String message, int errorCode, String path) {
         return error(Collections.singletonList(error), message, errorCode, path);
     }
+
 }
