@@ -36,14 +36,14 @@ public class SecurityConfig {
 
         http.sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .cors(cors -> cors.configurationSource(this.corsConfigurationSource()))
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/register", "/auth/**")
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/register")
                         .csrfTokenRequestHandler(csrfTokenRequestAttributeHandler)
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                 .addFilterAfter(new JWTGeneratorFilter(), BasicAuthenticationFilter.class)
                 .addFilterBefore(new JWTValidatorFilter(), BasicAuthenticationFilter.class)
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/register", "/auth/**").permitAll()
+                        .requestMatchers("/register", "/auth/public-key").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(httpBasic -> httpBasic.authenticationEntryPoint(authenticationEntryPoint));

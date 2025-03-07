@@ -28,10 +28,10 @@ public class AuthenticationController {
         return encryptionService.getPublicKey();
     }
 
-    @PostMapping("/auth/login")
-    public String login(@RequestBody Customer customer) throws Exception {
-        String decryptedPassword = encryptionService.decryptPassword(customer.getPwd());
-        return "Received decrypted password: " + decryptedPassword;
+    @GetMapping("/auth/login")
+    public String login(Authentication authentication) {
+//        String decryptedPassword = encryptionService.decryptPassword(customer.getPwd());
+        return "is Authenticated " + authentication.isAuthenticated();
     }
 
     @PostMapping("/register")
